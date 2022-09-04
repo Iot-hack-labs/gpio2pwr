@@ -21,6 +21,7 @@ func NewPowerStrip() *PowerStrip {
 func (p *PowerStrip) AddOutlet(name string, GPIOPin uint8) {
 	p.PowerOutlets[name] = rpio.Pin(GPIOPin)
 	p.PowerOutlets[name].Output()
+	p.PowerOutlets[name].High()
 }
 
 func (p *PowerStrip) On(name string) {
