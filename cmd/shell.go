@@ -51,13 +51,13 @@ var shellCmd = &cobra.Command{
 			line = strings.TrimSpace(line)
 			switch {
 
-			case line == "all on":
+			case line == "on all":
 				ps.AllOn()
 
-			case line == "all off":
+			case line == "off all":
 				ps.AllOff()
 
-			case line == "all toggle":
+			case line == "toggle all":
 				ps.ToggleAll()
 
 			case strings.HasPrefix(line, "on "):
@@ -108,29 +108,27 @@ func usage(w io.Writer) {
 }
 
 var completer = readline.NewPrefixCompleter(
-	readline.PcItem("all",
-		readline.PcItem("on"),
-		readline.PcItem("off"),
-		readline.PcItem("toggle"),
-	),
 
 	readline.PcItem("on",
 		readline.PcItem(PowerStrip.Fan),
 		readline.PcItem(PowerStrip.Lamp),
 		readline.PcItem(PowerStrip.RotatingLight),
 		readline.PcItem(PowerStrip.Speakers),
+		readline.PcItem("all"),
 	),
 	readline.PcItem("off",
 		readline.PcItem(PowerStrip.Fan),
 		readline.PcItem(PowerStrip.Lamp),
 		readline.PcItem(PowerStrip.RotatingLight),
 		readline.PcItem(PowerStrip.Speakers),
+		readline.PcItem("all"),
 	),
 	readline.PcItem("toggle",
 		readline.PcItem(PowerStrip.Fan),
 		readline.PcItem(PowerStrip.Lamp),
 		readline.PcItem(PowerStrip.RotatingLight),
 		readline.PcItem(PowerStrip.Speakers),
+		readline.PcItem("all"),
 	),
 
 	readline.PcItem("quit"),

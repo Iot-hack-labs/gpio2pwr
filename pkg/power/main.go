@@ -25,13 +25,13 @@ func (p *PowerStrip) AddOutlet(name string, GPIOPin uint8) {
 
 func (p *PowerStrip) On(name string) {
 	if outlet, ok := p.PowerOutlets[name]; ok {
-		outlet.High()
+		outlet.Low()
 	}
 }
 
 func (p *PowerStrip) Off(name string) {
 	if outlet, ok := p.PowerOutlets[name]; ok {
-		outlet.Low()
+		outlet.High()
 	}
 }
 
@@ -43,13 +43,13 @@ func (p *PowerStrip) Toggle(name string) {
 
 func (p *PowerStrip) AllOn() {
 	for _, outlet := range p.PowerOutlets {
-		outlet.High()
+		outlet.Low()
 	}
 }
 
 func (p *PowerStrip) AllOff() {
 	for _, outlet := range p.PowerOutlets {
-		outlet.Low()
+		outlet.High()
 	}
 }
 
